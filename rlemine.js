@@ -23,7 +23,7 @@ fs.readFile(arg[3], (err, data) => {
 				n++;
 			}	
 			if (n >= 4){
-				s = n
+				let s = n
 				while (s > 255) {
 					out += newCode(255, i);
 					s -= 255;
