@@ -28,10 +28,8 @@ fs.readFile(arg[3], (err, data) => {
 					out += newCode(255, i);
 					s -= 255;
 				}
-				if ((s >= 4) & (s <= 255)){ 
+				if (((s >= 4) & (s <= 255)) || (inText.charAt(i) == String.fromCharCode(35))){ 
 					out += newCode(s, i);
-				}else if (inText.charAt(i) == String.fromCharCode(35)){
-						out += newCode(s, i);
 				}else{	
 					out += inText.slice(i, i + s);
 				}	
