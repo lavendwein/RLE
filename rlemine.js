@@ -23,22 +23,22 @@ fs.readFile(arg[3], (err, data) => {
 				n++;
 			}	
 			if (n >= 4){
-				let s = n;
+				let s = n
 				while (s > 255) {
 					out += newCode(255, i);
 					s -= 255;
 				}
 				if ((s >= 4) & (s <= 255)){ 
 					out += newCode(s, i);
-				}else {
+				}else if (inText.charAt(i) == String.fromCharCode(35)){
+						out += newCode(s, i);
+				}else{	
 					out += inText.slice(i, i + s);
 				}	
-			}else {
-				if (inText.charAt(i) == String.fromCharCode(35)){
-					out += newCode(n, i);
-				}else{	
-					out += inText.slice(i, i + n);
-				}	
+			}else if (inText.charAt(i) == String.fromCharCode(35)){
+				out += newCode(n, i);
+			}else{	
+				out += inText.slice(i, i + n);	
 			}		
 			i += n;
 			n  = 1;
